@@ -30786,7 +30786,7 @@
                                 directContent: !0,
                                 onClick: function() {
                                     var e;
-                                    null === (e = window.open("https://t.me/CognitionAI", "_blank")) || void 0 === e || e.focus()
+                                    null === (e = window.open("https://twitter.com/ai_cogni", "_blank")) || void 0 === e || e.focus()
                                 },
                                 children: (0, zp.jsx)("svg", {
                                     width: "34",
@@ -30820,7 +30820,7 @@
                                 directContent: !0,
                                 onClick: function() {
                                     var e;
-                                    null === (e = window.open("https://t.me/CognitionAI", "_blank")) || void 0 === e || e.focus()
+                                    null === (e = window.open("https://gitbook.com", "_blank")) || void 0 === e || e.focus()
                                 },
                                 children: (0, zp.jsx)("svg", {
                                     width: "34",
@@ -30860,18 +30860,18 @@
                                 onClick: function() {
                                     return xn(an.Terms)
                                 },
-                                children: ""
+                                children: "Term of use"
                             }), (0, zp.jsx)("a", {
                                 href: "#",
                                 onClick: function() {
                                     return xn(an.Privacy)
                                 },
-                                children: ""
+                                children: "Privacy policy"
                             })]
                         }), (0, zp.jsxs)("a", {
                             className: "rc",
                             target: "_blank",
-                            href: "",
+                            href: "https://redcollar.co",
                             rel: "noreferrer",
                             onMouseEnter: function() {
                                 return r(!0)
@@ -30884,13 +30884,13 @@
                                 height: "16",
                                 viewBox: "0 0 35 16",
                                 fill: "none",
-                                xmlns: "",
+                                xmlns: "http://www.w3.org/2000/svg",
                                 children: (0, zp.jsx)("path", {
                                     className: Xp(!n && "disabled"),
-                                    d: "",
+                                    d: "M17.4547 7.56588L32.9853 0.212891L34.9782 2.20576L22.9523 15.3312L17.4547 9.90234L12.0259 15.3312L0 2.20576L1.99287 0.212891L17.4547 7.56588Z",
                                     fill: Bt()
                                 })
-                            }), ""]
+                            }), "by Red Collar"]
                         })]
                     })]
                 })
@@ -36163,7 +36163,7 @@
                 })
             }
             aL.SCROLL_TIME = 1e3;
-            var sL = ["Main", "About", "Story", "Androids", "Roadmap", "FAQ", "Follow"];
+            var sL = ["Main", "About", "Story", "Androids", "Roadmap", "Team", "FAQ", "Follow"];
 
             function lL(e) {
                 for (var t = e.page, n = e.totalPages, r = e.onNavigate, i = [], a = function(e) {
