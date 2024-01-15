@@ -1,0 +1,1 @@
+export default "\nuniform sampler2D map;\nuniform float colorAmount;\nvarying vec2 vUv;\n\nvoid main() {\n    vec4 color = texture2D(map, vUv);\n    float gray = dot(color.rgb, vec3(0.299, 0.587, 0.114)) * 0.5;\n\n    gl_FragColor = vec4(mix(vec3(gray), color.rgb, colorAmount), color.a);\n    gl_FragColor.rgb = mix(gl_FragColor.rgb, vec3(0.02, 0.02, 0.04), 0.4);\n}\n";

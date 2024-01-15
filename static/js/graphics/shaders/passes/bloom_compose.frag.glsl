@@ -1,0 +1,1 @@
+export default "\nuniform sampler2D tDiffuse;\nvarying vec2 vUv;\n\nvoid main()\n{\n    vec3 color = texture2D(tDiffuse, vUv).rgb;\n    gl_FragColor = vec4(color * 0.8, 1.0);\n}\n";

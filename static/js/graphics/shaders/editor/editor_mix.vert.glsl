@@ -1,0 +1,1 @@
+export default "\nuniform mat4 transformMatrix;\n\nvarying vec2 vUv;\n\nvoid main() {\n    vUv = uv;\n    gl_Position = projectionMatrix * modelViewMatrix * transformMatrix * vec4(position, 1.0);\n}\n";

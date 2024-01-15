@@ -1,0 +1,1 @@
+export default "\nattribute vec2 uv2;\nvarying vec2 vUv;\nvarying vec2 vUvBack;\n\nvoid main() {\n    vUv = vec2(uv.x, 1.0 - uv.y);\n    vUvBack = vec2(uv2.x, 1.0 - uv2.y);\n    gl_Position = projectionMatrix * (modelViewMatrix * vec4(position, 1.0));\n}\n";
