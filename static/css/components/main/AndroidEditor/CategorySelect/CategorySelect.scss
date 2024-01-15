@@ -1,0 +1,468 @@
+
+@import "src/styles/mixins";
+
+#editor-category-select {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  max-height: 800px;
+  padding: 0 50px;
+  box-sizing: border-box;
+
+  @include adapt(tablet) {
+    max-width: clamp(858px,80vw ,1080px);
+    max-height: 600px;
+    padding: 0 20px;
+  }
+
+  .column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 500ms ease;
+    transform: translateX(-100px);
+    opacity: 0;
+
+    &.right {
+      transform: translateX(100px);
+    }
+
+    &.active {
+      transform: none;
+      opacity: 1;
+      z-index: 2;
+      visibility: visible;
+      transition-timing-function: ease;
+    }
+
+    button.category-button, .category-button{
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+      position: relative;
+      display: block;
+      border: none;
+      box-sizing: border-box;
+      font-family: 'Jura', sans-serif;
+      color: #fff;
+      background: transparent;
+
+
+      @include adapt(tablet) {
+        width: clamp(122px,20vw ,150px);
+        height:  clamp(144px,20vw ,150px);
+      }
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 170px;
+        background: #07070C;
+
+        @include adapt(tablet) {
+          width: clamp(122px,20vw ,140px);
+          height:  clamp(134px,20vw ,140px);
+        }
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 200px;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 4px;
+
+        @include adapt(tablet) {
+          width: clamp(122px,20vw ,140px);
+          height:  clamp(134px,20vw ,140px);
+        }
+      }
+
+      canvas {
+        position: absolute;
+        display: block;
+        top: -5px;
+        left: -5px;
+        width: 210px;
+        height: 180px;
+
+        @include adapt(tablet) {
+          width: clamp(122px,20vw ,150px);
+          height:  clamp(134px,20vw ,150px);
+        }
+      }
+
+      span.title {
+        position: absolute;
+        display: block;
+        text-align: center;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        color: #fff;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 18px;
+
+        u {
+          text-decoration: none;
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        @include adapt(tablet) {
+          left: -30px;
+          bottom: -12px;
+          width: calc(100% + 60px);
+          font-size: 16px;
+          line-height: 16px;
+          pointer-events: none;
+        }
+      }
+
+      span.level {
+        display: block;
+        position: absolute;
+        top: 16px;
+        left: 10px;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 11px;
+        color: #555565;
+        padding: 4px;
+        background: #07070C;
+        border: 1px solid #555565;
+        border-radius: 3px;
+
+        @include adapt(tablet) {
+          top: 11px;
+          left: 10px;
+        }
+      }
+
+      .hint-icon {
+        position: absolute;
+        top: 16px;
+        right: 10px;
+        width: 22px;
+        height: 22px;
+
+        @include adapt(tablet) {
+          width: 18px;
+          height: 18px;
+          top: 11px;
+          right: 20px;
+        }
+      }
+
+      .locked {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 200px;
+        height: 170px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 15px;
+        box-sizing: border-box;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+
+        svg {
+          width: 24px;
+          height: 25px;
+          margin-bottom: 6px;
+        }
+
+        span {
+          display: block;
+        }
+      }
+
+
+      .part-button {
+        width: 200px;
+        height: 170px;
+        display: block;
+        position: relative;
+        border: none;
+        padding: 0;
+        margin-bottom: 30px;
+        margin-left: -5px;
+
+        @include adapt(tablet){
+          width: 102px;
+          height: 115px;
+          margin-top: 25px;
+          margin-left: 20px;
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 5px;
+        }
+
+        canvas {
+          position: absolute;
+          top: -5px;
+          left: -5px;
+          width: calc(100% + 10px);
+          height: calc(100% + 10px);
+        }
+
+        .level {
+          display: block;
+          position: absolute;
+          top: 16px;
+          left: 10px;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 11px;
+          color: #555565;
+          padding: 4px;
+          background: #07070C;
+          border: 1px solid #555565;
+          border-radius: 3px;
+          transition: 500ms ease-in-out all;
+
+          &.active {
+            border-color: #fff;
+            color: #fff;
+          }
+
+          @include adapt(tablet) {
+            top: 11px;
+            left: 7px;
+            padding: 3px 4px;
+          }
+        }
+
+        .locked {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: flex;
+          width: 200px;
+          height: 170px;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-end;
+          padding: 15px;
+          box-sizing: border-box;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+
+          svg {
+            width: 24px;
+            height: 25px;
+            margin-bottom: 6px;
+          }
+
+          span {
+            display: block;
+          }
+        }
+
+        .button-wrap {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          box-sizing: border-box;
+          padding: 0 15px 15px;
+          overflow: hidden;
+
+
+          @include adapt(tablet) {
+            padding: 0 10px 10px;
+          }
+
+          button {
+            display: block;
+            background: #07070C;
+            border-radius: 4px;
+            color: #FFF;
+            border: 1px solid var(--accent-color);
+            padding: 7px 15px;
+            font-family: 'Jura', sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+            text-transform: uppercase;
+            transition: transform 400ms ease;
+            transform: translateY(60px);
+
+            @include adapt(tablet) {
+              font-size: 12px;
+              line-height: 14px;
+              padding: 4px 6px;
+            }
+
+            &.active {
+              transform: none;
+              opacity: 1;
+              visibility: visible;
+            }
+
+            &.muted {
+              border-color: #555565;
+              color: #555565;
+            }
+          }
+        }
+
+      }
+
+      .hint {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(100% + 20px);
+        width: 290px;
+        transform: translateX(30px);
+        opacity: 0;
+        visibility: hidden;
+        transition: 300ms ease all;
+        background: #000;
+        border: 1px solid #555565;
+        border-radius: 4px;
+        text-align: left;
+        padding: 15px;
+        box-sizing: border-box;
+        min-height: 170px;
+        overflow: hidden;
+
+        @include adapt(tablet) {
+          width: clamp(122px,20vw ,140px);
+          min-height: clamp(113px,20vw ,134px);
+
+        }
+
+        .big {
+          margin-bottom: 10px;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 24px;
+          text-transform: uppercase;
+
+          @include adapt(tablet) {
+            font-size: 16px;
+            line-height: 18px;
+          }
+        }
+
+        .content {
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 24px;
+
+          @include adapt(tablet) {
+            font-size: 16px;
+            line-height: 22px;
+          }
+        }
+
+
+        &.active {
+          transform: none !important;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        &:after {
+          display: block;
+          content: '';
+          background: #555565;
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          top: 21px;
+          left: -5px;
+          transform: rotate(45deg);
+        }
+      }
+
+
+      &.right {
+
+        span.level {
+          left: auto;
+          right: 10px;
+
+          @include adapt(tablet) {
+            right: 20px;
+          }
+        }
+
+        .hint-icon {
+          right: 20px;
+          left: 10px;
+
+          @include adapt(tablet) {
+            left: 10px;
+          }
+        }
+
+        .hint {
+          left: auto;
+          right: calc(100% + 20px);
+          transform: translateX(-30px);
+
+          &:after {
+            display: block;
+            content: '';
+            background: #9a9a9a;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 21px;
+            left: auto;
+            right: -5px;
+            transform: rotate(45deg);
+          }
+
+        }
+
+      }
+
+      &.muted {
+
+        img {
+          filter: grayscale(100%);
+        }
+
+      }
+    }
+
+
+  }
+
+}

@@ -1,0 +1,17 @@
+
+.glitch-text {
+  position: relative;
+
+  &__proto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

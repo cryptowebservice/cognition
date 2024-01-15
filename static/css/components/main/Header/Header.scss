@@ -1,0 +1,129 @@
+
+@import "src/styles/mixins";
+
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 90px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 5;
+  padding: 30px 30px 0;
+  align-items: stretch;
+  justify-content: center;
+
+  @include adapt(tablet) {
+    padding: 20px 30px 0 20px;
+  }
+
+  .left, .right {
+    flex: 1 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    button {
+      position: relative;
+      background: transparent;
+      display: block;
+      border: none;
+      padding: 10px;
+      font-family: 'Jura', sans-serif;
+
+      @include adapt(tablet) {
+        top: 10px;
+        left: 10px;
+
+        .sound-bars {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      @include adapt(mobile) {
+        top: 0;
+        left: 6px;
+      }
+
+      &.logo {
+        padding: 0;
+
+        svg {
+          width: 80px;
+          height: 58px;
+
+          @include adapt(tablet) {
+            width: 56px;
+            height: 38px;
+          }
+
+          @include adapt(mobile) {
+            width: 52px;
+            height: 35px;
+
+            g.sub-text {
+              display: none;
+            }
+          }
+        }
+      }
+
+      &.auth, &.sound {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0;
+        margin-left: 20px;
+
+        svg {
+          width: 29px;
+          height: 34px;
+
+          @include adapt(tablet) {
+            width: 24px;
+            height: 24px;
+          }
+
+          @include adapt(mobile) {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        span {
+          display: block;
+          margin-top: 7px;
+          color: #fff;
+          font-size: 18px;
+          font-weight: normal;
+
+          @include adapt(tablet) {
+            font-size: 14px;
+          }
+        }
+
+        @include adapt(tablet) {
+          right: 10px;
+        }
+
+        @include adapt(mobile) {
+          right: 6px;
+
+          span {
+            display: none;
+          }
+        }
+
+
+      }
+    }
+  }
+
+  .right {
+    justify-content: flex-end;
+  }
+
+}

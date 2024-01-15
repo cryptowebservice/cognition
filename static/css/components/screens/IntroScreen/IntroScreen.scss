@@ -1,0 +1,269 @@
+@import '/src/styles/_variables.scss';
+
+#intro-screen {
+  display: flex;
+  width: 100%;
+  height: var(--content-h);
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .pad-top {
+      flex: 1 1;
+    }
+
+    .title {
+      flex: 0 0;
+      position: relative;
+      background: none;
+
+      h1 {
+        font-family: 'quantum', sans-serif;
+        font-size: 56px;
+        line-height: 48px;
+        font-weight: normal;
+        display: block;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        left: 0.15em;
+        text-align: center;
+        rotate: none;
+        transition: opacity 4000ms ease 1.5s;
+
+        &.hidden {
+          opacity: 0;
+        }
+
+        span {
+          display: inline-block;
+
+          //@for $i from 1 through 4 {
+          //  &:nth-of-type(#{$i}) {
+          //    rotate: none;
+          //    transition: rotate 5000ms cubic-bezier(.54,.19,.54,.72);
+          //    transition-delay: 1500ms + 100ms * $i;
+          //  }
+          //}
+          //@for $i from 5 through 10 {
+          //  &:nth-of-type(#{$i}) {
+          //    rotate: none;
+          //    transition: rotate 5000ms cubic-bezier(.54,.19,.54,.72);
+          //    transition-delay: 2000ms + 100ms * ($i - 5);
+          //
+          //  }
+          //}
+        }
+
+        @media screen and (min-width: $tablet) {
+          font-size: 140px;
+          line-height: 100px;
+        }
+        @media screen and (min-width: $desktop) {
+          font-size: 220px;
+          line-height: 160px;
+        }
+      }
+
+      .lines-top {
+        display: flex;
+        position: absolute;
+        bottom: 100%;
+        height: 25px;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 14px;
+        transform: translateY(0);
+        transition: transform 1.25s cubic-bezier(.98, .07, .41, .56);
+
+        svg {
+          width: 100%;
+          display: block;
+        }
+
+        &__left {
+          max-width: 50%;
+          transform: translateX(-85px);
+          transition: transform 4.5s ease-out 1200ms;
+        }
+
+        &__right {
+          max-width: 50%;
+          transform: translateX(85px);
+          transition: transform 4.5s ease-out 1200ms;
+        }
+
+        @media screen and (min-width: $tablet) {
+          &__left {
+            transform: translateX(-210px);
+          }
+          &__right {
+            transform: translateX(210px);
+          }
+        }
+        @media screen and (min-width: $desktop) {
+          padding-bottom: 20px;
+          &__left {
+            transform: translateX(-150px);
+          }
+          &__right {
+            transform: translateX(150px);
+          }
+        }
+      }
+
+      .lines-bottom {
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        padding-top: 14px;
+        transform: translateY(0);
+        transition: transform 1.25s cubic-bezier(.98, .07, .41, .56);
+
+        svg {
+          max-width: 100%;
+          display: block;
+          margin: 0 auto;
+        }
+
+        @media screen and (min-width: $tablet) {
+        }
+        @media screen and (min-width: $desktop) {
+          padding-top: 20px;
+        }
+      }
+    }
+
+    .sub-text {
+      flex: 1 1;
+      padding-top: 52px;
+      text-align: center;
+      box-sizing: border-box;
+      font-size: 14px;
+      line-height: 16px;
+
+      button {
+        opacity: 1;
+        transform: none;
+        transition: all 2s ease 4600ms;
+      }
+
+      p {
+        margin: 0 0 12px;
+
+        span {
+          transition: all 3000ms ease;
+          display: block;
+
+          &:nth-child(1) {
+            transition-delay: 3000ms;
+          }
+
+          &:nth-child(2) {
+            transition-delay: 3600ms;
+          }
+
+          &.hidden {
+            transform: translateX(20px);
+            opacity: 0;
+          }
+        }
+      }
+
+      @media screen and (min-width: $tablet) {
+        padding-top: 68px;
+        font-size: 16px;
+        line-height: 22px;
+
+        p {
+          margin: 0 0 15px;
+        }
+      }
+      @media screen and (min-width: $desktop) {
+        padding-top: 84px;
+        font-size: 18px;
+        line-height: 28px;
+
+        p {
+          margin: 0 0 20px;
+        }
+      }
+    }
+
+
+    &.hidden {
+      .title {
+
+
+        .lines-top {
+          transform: translateY(-10px);
+
+          &__left {
+            transform: translateX(2px);
+          }
+
+          &__right {
+            transform: translateX(-2px);
+          }
+
+          @media screen and (min-width: $tablet) {
+            transform: translateY(20px);
+            &__left {
+              transform: translateX(6px);
+            }
+
+            &__right {
+              transform: translateX(-6px);
+            }
+          }
+          @media screen and (min-width: $desktop) {
+            transform: translateY(90px);
+
+            &__left {
+              transform: translateX(205px);
+            }
+
+            &__right {
+              transform: translateX(-205px);
+            }
+          }
+
+        }
+
+        .lines-bottom {
+          transform: translateY(-90px);
+        }
+
+        h1 {
+
+          span {
+            display: inline-block;
+            @for $i from 1 through 10 {
+              &:nth-of-type(#{$i}) {
+                rotate: y -90deg;
+              }
+            }
+          }
+        }
+      }
+
+      .sub-text {
+        button {
+          opacity: 0;
+          transform: translateY(40px);
+
+        }
+      }
+
+    }
+  }
+
+}

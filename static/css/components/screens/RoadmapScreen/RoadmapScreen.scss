@@ -1,0 +1,175 @@
+
+@import "src/styles/mixins";
+
+#roadmap-screen {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wrap {
+    width: 1px;
+    height: 1px;
+    position: relative;
+
+    .top {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+
+      .metaverse {
+        color: var(--accent-color);
+        white-space: nowrap;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+
+        @include adapt(tablet) {
+          font-size: 16px;
+          line-height: 18px;
+          margin-bottom: 10px;
+        }
+
+        @include adapt(mobile) {
+          font-size: 14px;
+          line-height: 16px;
+          margin-bottom: 8px;
+        }
+      }
+
+      .title {
+        position: relative;
+        font-family: 'quantum', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 100px;
+        line-height: 80px;
+        letter-spacing: -0.1em;
+
+        span {
+          color: #aaa;
+        }
+
+        @include adapt(tablet) {
+          font-size: clamp(40px, 4.8vw ,80px);
+          line-height: 60px;
+        }
+
+        @include adapt(mobile) {
+          font-size: 40px;
+          line-height: 28px;
+        }
+      }
+    }
+    .bottom {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      .text {
+        width: 450px;
+        text-align: left;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        margin-top: 15px;
+
+        &.centered {
+          width: 600px;
+          text-align: center;
+          transform: translateX(-50%);
+        }
+
+        @include adapt(mobile) {
+          width: 280px !important;
+          font-size: 14px;
+          line-height: 16px;
+          text-align: center;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
+  .ring {
+    position: absolute;
+    top: calc(50% - 70vh);
+    left: calc(50% - 70vh);
+    display: block;
+    width:  140vh;
+    height: 140vh;
+    transition: 500ms ease all, 1000ms ease transform, 1000ms ease opacity, 0s ease left;
+    border-radius: 3000px;
+
+    @media screen and (min-width: 2220px){
+      width:  145vh;
+      height: 145vh;
+    }
+
+    @include adapt(mobile) {
+      width: 520px;
+      height: 520px;
+      top: calc(50% - 260px + 15px);
+      left: calc(50% - 260px);
+
+      svg *[stroke] {
+        stroke-width: 3;
+      }
+    }
+
+    &.scale-off {
+      transform: scale(0.3);
+    }
+
+    &__outline {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      animation: spin 15000ms linear infinite;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__inner {
+      display: block;
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      background: rgba(7, 7, 12, 0.6);
+      border: 1px solid #555565;
+      box-sizing: border-box;
+      border-radius: 100%;
+      overflow: hidden;
+
+
+    }
+  }
+
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

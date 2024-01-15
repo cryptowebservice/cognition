@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'Jura';
+  src: url('../fonts/Jura-Medium.eot');
+  src: local('Jura Medium'), local('Jura-Medium'),
+  url('../fonts/Jura-Medium.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Jura-Medium.woff2') format('woff2'),
+  url('../fonts/Jura-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jura';
+  src: url('../fonts/Jura-SemiBold.eot');
+  src: local('Jura SemiBold'), local('Jura-SemiBold'),
+  url('../fonts/Jura-SemiBold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Jura-SemiBold.woff2') format('woff2'),
+  url('../fonts/Jura-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jura';
+  src: url('../fonts/Jura-Light.eot');
+  src: local('Jura Light'), local('Jura-Light'),
+  url('../fonts/Jura-Light.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Jura-Light.woff2') format('woff2'),
+  url('../fonts/Jura-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jura';
+  src: url('../fonts/Jura-Bold.eot');
+  src: local('Jura Bold'), local('Jura-Bold'),
+  url('../fonts/Jura-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Jura-Bold.woff2') format('woff2'),
+  url('../fonts/Jura-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Jura';
+  src: url('../fonts/Jura-Regular.eot');
+  src: local('Jura Regular'), local('Jura-Regular'),
+  url('../fonts/Jura-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Jura-Regular.woff2') format('woff2'),
+  url('../fonts/Jura-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'quantum';
+  src: url('../fonts/quantum.eot');
+  src: local('quantum'),
+  url('../fonts/quantum.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/quantum.woff2') format('woff2'),
+  url('../fonts/quantum.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'oxanium';
+  src: url('../fonts/Oxanium-VariableFont_wght.ttf');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@mixin accent-font {
+  font-family: 'quantum', sans-serif;
+}

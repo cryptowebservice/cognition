@@ -1,0 +1,171 @@
+
+@import "src/styles/mixins";
+
+#android-category-edit {
+  width: 680px;
+  height: 370px;
+  margin-bottom: 200px;
+  transition: all 500ms ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(calc(50% + 100px));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-content: flex-start;
+
+  @include adapt(tablet) {
+    width: 415px;
+    height: 236px;
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(50%);
+  }
+
+  .part-button {
+    width: 200px;
+    height: 170px;
+    display: block;
+    position: relative;
+    border: none;
+    padding: 0;
+    margin: 12px;
+
+    @include adapt(tablet) {
+      width: 122px;
+      height: 113px;
+      margin: 6px;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    canvas {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+    }
+
+    .level {
+      display: block;
+      position: absolute;
+      top: 16px;
+      left: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 11px;
+      color: #555565;
+      padding: 4px;
+      background: #07070C;
+      border: 1px solid #555565;
+      border-radius: 3px;
+      transition: 500ms ease-in-out all;
+
+      &.active {
+        border-color: #fff;
+        color: #fff;
+      }
+
+      @include adapt(tablet) {
+        top: 11px;
+        left: 7px;
+        padding: 3px 4px;
+      }
+    }
+
+    .locked {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 200px;
+      height: 170px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 15px;
+      box-sizing: border-box;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+
+      svg {
+        width: 24px;
+        height: 25px;
+        margin-bottom: 6px;
+      }
+
+      span {
+        display: block;
+      }
+    }
+
+    .button-wrap {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 0 15px 15px;
+      overflow: hidden;
+
+      @include adapt(tablet) {
+        padding: 0 10px 10px;
+      }
+
+      button {
+        display: block;
+        background: #07070C;
+        border-radius: 4px;
+        color: #FFF;
+        border: 1px solid var(--accent-color);
+        padding: 7px 15px;
+        font-family: 'Jura', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        text-transform: uppercase;
+        transition: all 200ms ease, transform 400ms ease;
+        transform: translateY(60px);
+
+        @include adapt(tablet) {
+          font-size: 12px;
+          line-height: 14px;
+          padding: 4px 6px;
+        }
+
+        &.active {
+          transform: none;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        &.muted {
+          border-color: #555565;
+          color: #555565;
+        }
+      }
+    }
+
+  }
+
+
+}

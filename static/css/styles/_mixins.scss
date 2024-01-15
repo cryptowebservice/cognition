@@ -1,0 +1,14 @@
+
+@import "variables";
+
+@mixin adapt($size) {
+  @if ($size == 'tablet') {
+    @media screen and (max-width: $desktop) {
+      @content
+    }
+  } @else if ($size == 'mobile') {
+    @media screen and (max-width: $tablet) {
+      @content
+    }
+  }
+}

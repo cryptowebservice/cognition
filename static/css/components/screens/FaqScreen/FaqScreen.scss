@@ -1,0 +1,152 @@
+
+@import "src/styles/mixins";
+
+#faq-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+
+  .buttons {
+    width: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    @include adapt(tablet) {
+      width: 760px;
+    }
+
+    .title {
+      position: relative;
+      width: 100%;
+      height: 1px;
+
+      span {
+        display: block;
+        font-family: 'quantum', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 100px;
+        line-height: 80px;
+        letter-spacing: -0.1em;
+        position: absolute;
+        left: 0.1em;
+        width: 100%;
+        top: -22px;
+        text-align: center;
+        transform: translateY(-100%);
+
+        @include adapt(tablet) {
+          font-size: 80px;
+          line-height: 60px;
+          top: -16px;
+        }
+      }
+    }
+
+    .button {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 480px;
+      height: 170px;
+      position: relative;
+      border: none;
+      background: transparent;
+      box-sizing: border-box;
+      padding: 30px;
+      margin: 0 10px 20px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 30px;
+      color: #fff;
+      font-family: 'Jura', sans-serif;
+
+      @include adapt(tablet) {
+        width: 352px;
+        height: 120px;
+        padding: 24px;
+        font-size: 24px;
+        line-height: 24px;
+      }
+
+      canvas {
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+      }
+
+      span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .svg-wrap {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 170px;
+        height: 170px;
+        overflow: hidden;
+
+        @include adapt(tablet) {
+          width: 120px;
+          height: 120px;
+        }
+
+        svg {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 170px;
+          height: 170px;
+
+          @include adapt(tablet) {
+            width: 120px;
+            height: 120px;
+          }
+
+          path[stroke] {
+            stroke: #555565;
+            transition: 400ms ease all;
+          }
+        }
+      }
+
+      &:hover .svg-wrap svg path[stroke] {
+        stroke: var(--accent-color);
+      }
+
+
+    }
+  }
+
+  .slider-wrap {
+    display: block;
+    position: relative;
+
+    .title {
+      display: block;
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translate(calc(-50% + 0.1em), -100%);
+      font-family: 'quantum', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 28px;
+      text-align: center;
+      letter-spacing: -0.1em;
+    }
+
+  }
+
+}

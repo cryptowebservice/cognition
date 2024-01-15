@@ -1,0 +1,134 @@
+
+#mobile-category-editor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 41px;
+  background: #07070C;
+  box-sizing: border-box;
+  border-top: 1px solid #555565;
+  transition: transform 500ms ease;
+  transform: translateY(41px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  &.active {
+    transform: none;
+  }
+
+  button {
+    height: 40px;
+    width: 24px;
+    margin-right: 8px;
+    background: none;
+    border: none;
+    position: relative;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    em {
+      position: relative;
+      width: 10px;
+      height: 10px;
+
+      &:before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #FFFFFF;
+        transition: all 200ms ease;
+      }
+
+      &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 4px;
+        height: 100%;
+        width: 2px;
+        background: #FFFFFF;
+        transition: all 200ms ease;
+      }
+    }
+
+    &.minus {
+      margin-right: 12px;
+
+      em:after {
+        display: none;
+      }
+    }
+
+    &.plus {
+      margin-left: 4px;
+      margin-right: 0;
+    }
+
+    &.minus, &.plus {
+      transition: all 200ms ease, transform 20ms linear;
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      &:before {
+        transition: 100ms ease all;
+        position: absolute;
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        top: 8px;
+        left: 0;
+        border: 1px solid var(--accent-color);
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      &.disabled {
+        &:before {
+          border-color: #555565;
+        }
+
+        em:before, em:after {
+          background: #555565;
+        }
+      }
+
+
+    }
+
+
+    &.level {
+
+      em {
+        display: none;
+      }
+
+      &:after {
+        display: block;
+        content: '';
+        width: 24px;
+        height: 2px;
+        border-radius: 2px;
+        background: #555565;
+        transition: background 200ms ease;
+      }
+
+      &.active:after {
+        background: var(--accent-color);
+      }
+
+    }
+  }
+}

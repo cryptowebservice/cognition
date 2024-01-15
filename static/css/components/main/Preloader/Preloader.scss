@@ -1,0 +1,244 @@
+
+@import "src/styles/mixins";
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: var(--full-h);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #07070C;
+  transition: 500ms ease all;
+  z-index: 100;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .text {
+    display: grid;
+    flex: 1 1;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .glitch {
+      font-size: 24px;
+      position: relative;
+      user-select: none;
+      transition: 800ms ease-in;
+      transition-property: transform, visibility, opacity;
+      transition-delay: 200ms;
+
+      @include adapt(mobile) {
+        font-size: 14px;
+      }
+
+      &__visual {
+        position: absolute;
+        top: 0;
+        left: 0;
+        white-space: nowrap;
+
+        i {
+          font-style: normal;
+          color: #888;
+        }
+      }
+
+      &__hidden {
+        color: transparent;
+      }
+    }
+
+    .sound-message {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      transition: all 800ms ease-out;
+      transition-delay: 1000ms;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(30px);
+      font-size: 24px;
+      line-height: 32px;
+
+      @include adapt(mobile) {
+        font-size: 14px;
+        line-height: 16px;
+      }
+
+      &__wrap {
+        position: relative;
+        display: block;
+        text-align: center;
+
+        .equalizer-wrap {
+          display: flex;
+          position: absolute;
+          bottom: 100%;
+          left: 0;
+          width: 100%;
+          padding-bottom: 27px;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .button-wrap {
+          display: block;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          padding-top: 25px;
+        }
+      }
+
+    }
+
+    &.sound {
+
+      .glitch {
+        transform: translateY(30px);
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .sound-message {
+        transform: none;
+        opacity: 1;
+        visibility: inherit;
+      }
+
+    }
+  }
+
+  .ring {
+    flex: 0 0;
+    height: 1px;
+    width: 100%;
+    position: relative;
+    transition: transform 800ms ease-in;
+    transition-delay: 200ms;
+    transform-style: preserve-3d;
+    will-change: transform;
+
+    &.hidden {
+      transform: translateY(100px);
+    }
+
+    .wrapper {
+      display: block;
+      width: 38px;
+      height: 38px;
+      position: absolute;
+      left: calc(50% - 19px);
+      bottom: 30px;
+
+      .inner {
+        transform: rotate(-90deg);
+
+        g:nth-child(1) circle {
+          animation: stroke-ring infinite linear 1s;
+        }
+
+        g:nth-child(2) circle {
+          transition: 200ms ease all;
+        }
+      }
+      .outer{
+       position: absolute;
+        top: -13px;
+        left: -13px;
+        animation: outerSpin 12s infinite;
+
+
+        @keyframes outerSpin {
+          0%{
+            rotate: 0;
+          }
+          100%{
+            rotate: -360deg;
+          }
+        }
+      }
+    }
+  }
+
+  .no-sound {
+    flex: 0 0;
+    height: 1px;
+    width: 100%;
+    position: relative;
+    transition: all 800ms ease;
+    transition-delay: 1400ms;
+    transform-style: preserve-3d;
+    will-change: transform;
+
+    &.hidden {
+      transform: translateY(20px);
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .wrapper {
+      display: block;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      text-align: center;
+      padding: 0 20px 30px;
+      box-sizing: border-box;
+
+      button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24px;
+        color: #555565;
+        transition: all 100ms ease;
+        text-decoration: none;
+        font-family: 'Jura', sans-serif;
+
+        &:hover {
+          color: var(--accent-color);
+        }
+
+        &:active {
+          transform: translateY(2px);
+        }
+
+        @include adapt(mobile) {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes stroke-ring {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -8;
+  }
+}

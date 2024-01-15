@@ -1,0 +1,227 @@
+@import "src/styles/mixins";
+
+#module-popup{
+  width: 100%;
+
+  .title{
+    margin-bottom: 20px;
+  }
+
+  .main-pic {
+    max-width: 400px;
+    margin: 68px auto 40px;
+    display: block;
+    background: #07070C;
+    border: 1px solid #555565;
+    border-radius: 8px;
+    padding: 15px 15px 15px 15px;
+
+    @media screen and (max-width: 1024px) {
+      width: 70%;
+      aspect-ratio: 1.26;
+    }
+  }
+
+  .manifesto-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    color: #fff;
+    text-align: center;
+    position: relative;
+  }
+
+  .content{
+    color: #fff;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    box-sizing: border-box;
+
+    .title{
+      text-align: center;
+      font-family: 'quantum', sans-serif;
+      font-weight: 500;
+      font-size: 100px;
+      line-height: 80px;
+      letter-spacing: -0.1em;
+      @include adapt(tablet) {
+        font-size: 80px;
+        line-height: 60px;
+        margin: 20px 0 15px;
+      }
+
+      @include adapt(mobile) {
+        font-size: 40px;
+        line-height: 28px;
+        margin: 12px 0;
+      }
+      &-sub{
+        color: #FFFFFF;
+        opacity: 0.6;
+        font-size: 18px;
+        text-align: center;
+        margin-top: 8px;
+        @include adapt(tablet) {
+          font-size: 14px;
+          line-height: 20px;
+        }
+
+        @include adapt(mobile) {
+          font-size: 12px;
+          line-height: 14px;
+        }
+      }
+    }
+
+
+    .text{
+      font-family: 'Jura', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 32px;
+
+      @include adapt(tablet) {
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      @include adapt(mobile) {
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+
+    .samples{
+
+      p:first-child {
+        text-align: center;
+      }
+
+      .formula {
+        text-align: center;
+        font-family: 'oxanium', sans-serif;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+
+        @media screen and (max-width: 900px) {
+          font-size: 36px;
+        }
+
+        @media screen and (max-width: 600px) {
+          font-size: 28px;
+        }
+        @media screen and (max-width: 450px) {
+          font-size: 22px;
+        }
+      }
+
+      .pictures{
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+
+        @media screen and (max-width: 600px) {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        em {
+          padding: 12px;
+          position: relative;
+          aspect-ratio: 266 / 206;
+          flex: 1 1;
+          display: block;
+          border: 1px solid #555565;
+          border-radius: 8px;
+        }
+
+        u {
+          position: absolute;
+          bottom: 12px;
+          right: 12px;
+          text-align: center;
+          color: rgba(0, 0, 0, 0.4);
+          text-decoration: none;
+          font-style: normal;
+          font-size: 24px;
+          line-height: 32px;
+          width: 75px;
+        }
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+
+          @media screen and (max-width: 600px) {
+            width: 100%;
+            max-width: 255px;
+            margin-bottom: 20px;
+          }
+
+          img{
+            max-width: 100%;
+          }
+
+          &-description{
+            display: flex;
+            justify-content: space-between;
+
+            font-family: 'Jura', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 28px;
+
+
+            @include adapt(tablet) {
+              font-size: 14px;
+              line-height: 20px;
+            }
+
+            @include adapt(mobile) {
+              font-size: 12px;
+              line-height: 14px;
+            }
+
+            &-left{
+              color: #555565;
+
+              p{
+                margin: 8px 0;
+                &:first-child{
+                  margin-top: 5px;
+                }
+                &:last-child{
+                  margin-bottom: 15px;
+                }
+              }
+
+            }
+
+            &-right{
+              text-align: right;
+
+              p{
+                margin: 8px 0;
+                &:first-child{
+                  margin-top: 5px;
+                }
+                &:last-child{
+                  margin-bottom: 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

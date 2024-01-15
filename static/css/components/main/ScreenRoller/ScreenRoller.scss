@@ -1,0 +1,28 @@
+
+.screen-roller {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: var(--content-h);
+  box-sizing: border-box;
+
+  &__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    overflow: hidden;
+    height: var(--content-h);
+    transform-style: preserve-3d;
+    will-change: transform;
+    z-index: 0;
+
+    &.hidden {
+      visibility: hidden;
+    }
+  }
+
+
+
+}

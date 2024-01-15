@@ -1,0 +1,52 @@
+@import '/src/styles/_variables.scss';
+
+.rounded-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  height: 43px;
+  padding: 0 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  color: #fff;
+  border: none;
+  font-family: 'Jura', sans-serif;
+
+  canvas {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    z-index: 1;
+  }
+
+  span, svg {
+    display: block;
+    z-index: 2;
+  }
+  span{
+    min-width: 152px;
+  }
+
+
+  @media screen and (min-width: $tablet) {
+    height: 47px;
+    padding: 0 20px;
+    font-size: 16px;
+    span{
+      min-width: 180px;
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    height: 60px;
+    padding: 0 20px;
+    font-size: 18px;
+    span{
+      min-width: 200px;
+    }
+  }
+}

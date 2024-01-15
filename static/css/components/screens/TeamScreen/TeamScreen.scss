@@ -1,0 +1,238 @@
+@import "src/styles/mixins";
+
+#team-screen {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .title {
+    position: relative;
+    width: 100%;
+    height: 1px;
+
+    @include adapt(mobile) {
+      height: auto;
+    }
+
+    span {
+      display: block;
+      position: absolute;
+      bottom: 22px;
+      left: 0.1em;
+      width: 100%;
+      text-align: center;
+      font-size: 100px;
+      line-height: 80px;
+      letter-spacing: -0.1em;
+      font-family: 'quantum', sans-serif;
+      text-transform: uppercase;
+
+      @include adapt(tablet) {
+        font-size: 80px;
+        line-height: 60px;
+        bottom: 16px;
+      }
+
+      @include adapt(mobile) {
+        font-size: 40px;
+        line-height: 28px;
+        margin-bottom: 13px;
+        bottom: 0;
+        position: relative;
+      }
+    }
+  }
+
+  .wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 980px;
+    height: 300px;
+    text-decoration: none;
+    color: #fff;
+
+    @include adapt(tablet) {
+      width: 720px;
+      height: 209px;
+    }
+
+    @include adapt(mobile) {
+      width: 293px;
+      height: 164px;
+      text-align: center;
+    }
+
+    canvas {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+    }
+
+    &__left {
+      width: 50%;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+
+      .heart-wrap {
+        position: absolute;
+        top: 1px;
+        left: 0;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+        pointer-events: none;
+
+        @include adapt(tablet) {
+          height: 400px;
+        }
+
+        svg {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+
+          animation: heart-animation cubic-bezier(0.45, 0, 0.55, 1) infinite 3000ms;
+
+          path[fill] {
+            fill: #07070C;
+            transition: 500ms ease-in-out fill;
+          }
+
+          path[stroke] {
+            stroke: url(#HeartGradient);
+            transition: 500ms ease-in-out stroke;
+          }
+
+          stop[offset='100%'] {
+            transition: 500ms ease-in-out all;
+          }
+
+          &.active {
+
+            stop[offset='100%'] {
+              stop-color: var(--accent-color);
+            }
+          }
+        }
+      }
+    }
+
+    &__right {
+      width: 50%;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+      padding: 0 40px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 24px;
+
+      @include adapt(tablet) {
+        font-size: 16px;
+        line-height: 22px;
+      }
+
+      @include adapt(mobile) {
+        width: 100%;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 0 20px;
+      }
+
+      .logo {
+        display: block;
+        margin-bottom: 20px;
+        position: relative;
+        //left: -20px;
+
+        path {
+          transition: all 2000ms linear;
+
+          @for $i from 2 through 10 {
+            //&:nth-of-type(#{$i}) {
+            //  transition-duration: $i * 320ms;
+            //  //transition-delay: #{$i * 200ms};
+            //
+            //}
+            &:nth-of-type(1) {
+              //transition-duration: 10ms;
+            }
+            &:nth-of-type(2) {
+              transition-duration: 175ms;
+            }
+            &:nth-of-type(3) {
+              transition-duration: 380ms;
+            }
+            &:nth-of-type(4) {
+              transition-duration: 570ms;
+            }
+            &:nth-of-type(5) {
+              transition-duration: 760ms;
+            }
+            &:nth-of-type(6) {
+              transition-duration: 950ms;
+            }
+            &:nth-of-type(7) {
+              transition-duration: 1140ms;
+            }
+          }
+        }
+
+        @include adapt(tablet) {
+          margin-bottom: 8px;
+          transform-origin: 0% 0%;
+          transform: scale(0.8);
+        }
+
+        @include adapt(mobile) {
+          margin: 0 auto 8px;
+          position: relative;
+          left: 0;
+          top: 0;
+          transform-origin: center;
+          transform: scale(0.8) translateX(-5%);
+        }
+      }
+
+      .text {
+        margin-bottom: 20px;
+
+        @include adapt(tablet) {
+          margin-bottom: 8px;
+        }
+      }
+
+      .link {
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--accent-color)
+      }
+
+    }
+  }
+}
+
+@keyframes heart-animation {
+  0% {
+    transform: translateY(-22%) rotate(-10deg);
+  }
+  50% {
+    transform: translateY(-20%) rotate(-10deg);
+  }
+  100% {
+    transform: translateY(-22%) rotate(-10deg);
+  }
+}

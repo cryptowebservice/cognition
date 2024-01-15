@@ -1,0 +1,40 @@
+@import "src/styles/mixins";
+
+.paintings {
+  --about-paintings-width: 450px;
+  --about-paintings-aspect: 0.81;
+  --about-paintings-padding: 15px;
+  --about-paintings-inner: 0px;
+  --about-paintings-outer: 8px;
+  --about-paintings-margin: 20px;
+
+  @include adapt(tablet) {
+    --about-paintings-width: 350px;
+    --about-paintings-padding: 10px;
+  }
+
+  @include adapt(mobile) {
+    --about-paintings-width: 300px;
+    --about-paintings-padding: 10px;
+    --about-paintings-margin: 0;
+  }
+
+
+  display: block;
+  position: relative;
+  width: var(--about-paintings-width);
+  padding-bottom: calc(var(--about-paintings-aspect) * 100%);
+  border: 1px solid #555565;
+  border-radius: var(--about-paintings-outer);
+  margin-right: var(--about-paintings-margin);
+
+  &__canvas {
+    position: absolute;
+    top: var(--about-paintings-padding);
+    left: var(--about-paintings-padding);
+    width: calc(100% - var(--about-paintings-padding) * 2);
+    height: calc(100% - var(--about-paintings-padding) * 2);
+    border-radius: var(--about-paintings-inner);
+  }
+
+}

@@ -1,0 +1,139 @@
+@import "src/styles/mixins";
+
+.scroll-overlay {
+  visibility: hidden;
+  opacity: 0;
+  transition: 400ms ease all;
+  transform: scale(1.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 7;
+  background: #07070C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent !important;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  &__upper {
+    flex: 1 1;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100px;
+      width: 100%;
+      z-index: 5;
+      pointer-events: none;
+      background: linear-gradient(180deg, #07080C 0%, rgba(7, 8, 12, 0) 100%);
+      transform: translateY(-100%);
+      transition: all 150ms ease-in-out;
+    }
+
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100px;
+      width: 100%;
+      z-index: 5;
+      pointer-events: none;
+      background: linear-gradient(0deg, #07080C 0%, rgba(7, 8, 12, 0) 100%);
+      transform: translateY(100%);
+      transition: all 150ms ease-in-out;
+    }
+
+    &.scrollable-up:before {
+      transform: none;
+    }
+
+    &.scrollable-down:after {
+      transform: none;
+    }
+  }
+
+  &__wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  &__content {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__progress {
+    display: block;
+    height: 1px;
+    position: relative;
+    width: 100%;
+
+    @include adapt(mobile) {
+      background: #555565;
+    }
+
+    em {
+      transition: all 100ms ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 30%;
+      background: var(--accent-color);
+    }
+  }
+
+  &__close {
+    height: 40px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: -1;
+
+    @include adapt(mobile) {
+      display: flex;
+    }
+  }
+
+  .bg {
+    position: absolute;
+    height: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    pointer-events: none;
+    z-index: -10;
+
+    //@media screen and (min-width: 1900px){
+    //  width: 100%;
+    //}
+  }
+
+}
+
+.scrollable-up .chevron-down {
+  opacity: 0 !important;
+}

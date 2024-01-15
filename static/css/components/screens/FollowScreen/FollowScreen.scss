@@ -1,0 +1,162 @@
+
+@import "src/styles/mixins";
+
+#follow-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  .wrap {
+
+    .title {
+      font-family: 'quantum', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 100px;
+      line-height: 80px;
+      text-align: center;
+      letter-spacing: -0.1em;
+      position: relative;
+      left: 0.1em;
+      margin-bottom: 20px;
+
+      @include adapt(tablet) {
+        font-size: 80px;
+        line-height: 60px;
+        margin-bottom: 16px;
+      }
+
+      @include adapt(mobile) {
+        font-size: 40px;
+        line-height: 28px;
+        margin-bottom: 13px;
+      }
+
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        margin: 0 20px;
+        width: 84px;
+        height: 60px;
+        padding: 0;
+
+        @include adapt(tablet) {
+          width: 56px;
+          height: 39px;
+          margin: 0 10px;
+
+          svg {
+            width: 22px;
+          }
+        }
+
+        @include adapt(mobile) {
+          width: 64px;
+          height: 46px;
+          margin: 0 4px;
+        }
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    z-index: 2;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include adapt(tablet) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    @include adapt(mobile) {
+      font-size: 12px;
+      line-height: 14px;
+      flex-direction: column;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      @include adapt(mobile) {
+        flex-direction: column;
+      }
+
+      span {
+        display: block;
+        margin-right: 60px;
+
+        @include adapt(tablet) {
+          margin-right: 40px;
+        }
+
+        @include adapt(mobile) {
+          margin-right: 0;
+          margin-bottom: 18px;
+          order: 10;
+        }
+      }
+
+      a {
+        display: block;
+        margin-right: 20px;
+        color: #fff;
+        text-decoration: none;
+
+        @include adapt(tablet) {
+          margin-right: 15px;
+        }
+
+        @include adapt(mobile) {
+          margin-right: 0;
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .rc {
+      color: #fff;
+      text-decoration: none;
+
+
+      svg {
+        position: relative;
+        top: 2px;
+        margin-right: 10px;
+
+          path{
+            transition: fill 0.33s;
+
+           &.disabled{
+             fill: white;
+           }
+          }
+        }
+        @include adapt(mobile) {
+          height: 12px;
+        }
+      }
+
+  }
+}
